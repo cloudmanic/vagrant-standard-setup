@@ -14,11 +14,11 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "/Users/spicer/CloudmanicLabs", "/CloudmanicLabs", :nfs => true
   
   # Configure with puppet
-  #config.vm.provision :puppet do |puppet|
-  #	puppet.manifests_path = "puppet/manifests"
-  #	puppet.manifest_file  = "init.pp"
-  #	puppet.module_path = "puppet/modules"
-  #	#puppet.options = "--verbose --debug"
-  #	#puppet.options = "--verbose"
-  #end
+  config.vm.provision :puppet do |puppet|
+  	puppet.manifests_path = "puppet/manifests"
+  	puppet.manifest_file  = "init.pp"
+  	puppet.module_path = "puppet/modules"
+  	#puppet.options = "--verbose --debug"
+  	#puppet.options = "--verbose"
+  end
 end

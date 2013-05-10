@@ -18,3 +18,7 @@ These are the Vagrant configs for a stadard development machine at (Cloudmanic L
 Maybe you do not want to run Vagrant. You can simple checkout this repo and run puppet from the command line.
 
 ```puppet apply --verbose --modulepath=modules/ manifests/init.pp``` 
+
+# Host Files
+
+I like to use https://code.google.com/p/gmask/ for managing your /etc/host file. You can also use https://github.com/cogitatio/vagrant-hostsupdater

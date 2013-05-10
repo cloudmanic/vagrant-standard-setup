@@ -31,6 +31,17 @@ file
   	notify => Service['lighttpd']
 }
 
+# Make it so phpmyadmin does not require a password.
+file { "/etc/phpmyadmin/config.inc.php":
+	ensure => present,
+	owner => 'root',
+	group => 'www-data',
+	mode => 0640,
+	source => "puppet:///modules/phpmyadmin/config.inc.php",
+	require => [ Package['phpmyadmin'], Package['lighttpd'] ],
+	notify => Service['lighttpd']
+}
+
 include bootstrap
 include other
 include mysql
