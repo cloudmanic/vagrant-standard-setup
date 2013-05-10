@@ -16,11 +16,11 @@ exec
 
 include bootstrap
 include other
-#include mysql
+include mysql
 include php54
 include php
 include lighttpd
 include phpmyadmin
-#include redis
-#include beanstalkd
-#include memcached
+include redis
+include beanstalkd
+include memcached

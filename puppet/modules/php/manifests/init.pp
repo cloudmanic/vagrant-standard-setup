@@ -43,8 +43,8 @@ class php
 	
 	exec
 	{
-		"pecl install OAuth":
-			require => [ Package['php5'], Package['make'], Package['libpcre3-dev'] ]
+		"/usr/bin/pecl install OAuth":
+			require => [ Package['php-pear'], Package['php5'], Package['make'], Package['libpcre3-dev'], Package['php5-cli'] ]
 	}
 	
 	exec
