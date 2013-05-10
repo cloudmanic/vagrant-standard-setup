@@ -1,6 +1,6 @@
 class mysql 
 {
-    $mysqlPassword = "yLzyv*4o}+I~qY}/t;J;>Hv"
+    $mysqlPassword = "foobar"
  
     package 
     { 

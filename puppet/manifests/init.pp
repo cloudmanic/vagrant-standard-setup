@@ -14,6 +14,16 @@ exec
 		require => Exec['add php54 apt-repo']
 }
 
+# Link up the www dir.
+file 
+{ 
+	'/var/www':
+  	ensure => 'link',
+  	target => '/CloudmanicLabs/www-clients',
+  	require => Package['lighttpd'],
+  	notify => Service['lighttpd']
+}
+
 include bootstrap
 include other
 include mysql

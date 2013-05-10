@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
   config.vm.network :private_network, ip: "192.168.60.100"
+  config.vm.hostname = "dev2.cloudmanic.dev"
   
   # Set timezone
   config.vm.provision :shell, :inline => "echo \"America/Los_Angeles\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
@@ -20,8 +21,4 @@ Vagrant.configure("2") do |config|
   	#puppet.options = "--verbose --debug"
   	#puppet.options = "--verbose"
   end
-  
-  # Set the hostname.
-  config.vm.hostname = "dev2.cloudmanic.dev"
-  config.hostsupdater.aliases = []
 end
