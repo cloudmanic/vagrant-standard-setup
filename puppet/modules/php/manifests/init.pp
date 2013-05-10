@@ -17,7 +17,8 @@ class php
 		"php5-sqlite",
 		"php5-geoip",
 		"make",
-		"libpcre3-dev"
+		"libpcre3-dev",
+		"liboauth-php"
 	]
 	
 	package 
@@ -40,17 +41,20 @@ class php
 		command => "sudo mv /usr/local/bin/composer.phar /usr/local/bin/composer",
 		require => Exec['install composer'],
 	} 
-	
-	exec
-	{
-		"pecl install OAuth":
-			require => [ Package['php-pear'], Package['php5'], Package['make'], Package['libpcre3-dev'], Package['php5-cli'] ]
-	}
-	
+
+  file { "/usr/lib/php5/20100525+lfs/oauth.so":
+  	ensure => present,
+  	owner => 'root',
+  	group => 'root',
+  	mode => 0644,
+  	source => "puppet:///modules/php/oauth.so",
+  	require => [ Package['php5-cli'], Package['php5'] ]
+  }
+  
 	exec
 	{
 		"echo extension=/usr/lib/php5/20100525+lfs/oauth.so > /etc/php5/conf.d/oauth.ini":
-			require => Exec['pecl install OAuth']
+			require => File['/usr/lib/php5/20100525+lfs/oauth.so']
 	}
 	
   file { "/etc/php5/cli/php.ini":
