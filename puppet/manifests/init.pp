@@ -14,13 +14,20 @@ exec
 		require => Exec['add php54 apt-repo']
 }
 
+# Remove www dir
+exec
+{
+	'rm -rf /var/www':
+		require => Package['lighttpd']
+}
+
 # Link up the www dir.
 file 
 { 
 	'/var/www':
   	ensure => 'link',
   	target => '/CloudmanicLabs/www-clients',
-  	require => Package['lighttpd'],
+  	require => Exec['rm -rf /var/www'],
   	notify => Service['lighttpd']
 }
 
