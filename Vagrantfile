@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "echo \"America/Los_Angeles\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
   
   # Setup Shares
-  config.vm.synced_folder "/Users/spicer/CloudmanicLabs", "/CloudmanicLabs", :nfs => true
+  config.vm.synced_folder "/Users/spicer/CloudmanicLabs/client-work", "/CloudmanicLabs", :nfs => true
   
   # Configure with puppet
   config.vm.provision :puppet do |puppet|

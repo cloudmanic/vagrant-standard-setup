@@ -8,6 +8,11 @@ class lighttpd
     ensure => absent,
     require => Package['lighttpd']
   }
+
+	package{'apache2.2-common':
+    ensure => absent,
+    require => Package['lighttpd']
+  }
   
   file { "/etc/lighttpd/lighttpd.conf":
   	ensure => present,
