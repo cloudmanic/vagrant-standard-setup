@@ -24,6 +24,23 @@ class mysql
             command => "mysqladmin -uroot password $mysqlPassword",
             require => Service["mysql"],
     }
+    
+  file { '/usr/local/sbin/mysqlbackup.sh':
+  	ensure => present,
+    mode => '0700',
+    owner => 'root',
+    group => 'root',
+  	source => "puppet:///modules/mysql/mysqlbackup.sh"
+  }
+  
+  cron { 'mysql-backup':
+    ensure  => 'present',
+    command => '/usr/local/sbin/mysqlbackup.sh',
+    user    => 'root',
+    hour    => 23,
+    minute  => 5,
+    require => File['/usr/local/sbin/mysqlbackup.sh'],
+  }
 
     #exec 
     #{ 

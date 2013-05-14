@@ -83,6 +83,9 @@ if (!empty($dbname)) {
     $i++;
 }
 
+/* Cloudmanic Added */
+$cfg['ThemeDefault'] = 'original';
+
 /* Authentication type */
 //$cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
