@@ -4,7 +4,9 @@ class other
 		"curl", 
 		"vim",
 		"wget",
-		"nmap"
+		"nmap",
+		"nfs-common",
+		"portmap"
 	]
 	
 	package 
