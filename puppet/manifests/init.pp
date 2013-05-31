@@ -26,7 +26,7 @@ file
 { 
 	'/var/www':
   	ensure => 'link',
-  	target => '/CloudmanicLabs/client-work/www',
+  	target => '/mounts/www',
   	require => Exec['rm -rf /var/www'],
   	notify => Service['lighttpd']
 }
