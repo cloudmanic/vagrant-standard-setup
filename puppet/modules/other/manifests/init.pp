@@ -4,7 +4,7 @@ class other
 		"curl", 
 		"vim",
 		"wget",
-		"nmap",
+		"imagemagick",
 		"nfs-common",
 		"portmap"
 	]
