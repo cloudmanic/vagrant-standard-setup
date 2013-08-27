@@ -6,7 +6,8 @@ class other
 		"wget",
 		"imagemagick",
 		"nfs-common",
-		"portmap"
+		"portmap",
+		"imagick-php5"
 	]
 	
 	package 
