@@ -7,8 +7,7 @@ class other
 		"imagemagick",
 		"nfs-common",
 		"portmap",
-		"php5-imagick",
-		"wkhtmltopdf"
+		"php5-imagick"	
 	]
 	
 	package 
